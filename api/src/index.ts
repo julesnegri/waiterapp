@@ -9,7 +9,8 @@ dotenv.config();
 mongoose.connect(`mongodb://${process.env.MONGOUSER}:${process.env.MONGOPASSWORD}@${process.env.MONGOHOST}:${process.env.MONGOPORT}`)
   .then(() => {
     const app = express();
-    const PORT = 3001;
+    const port = 3001;
+    const hostname = '127.0.0.1';
 
     console.log('conectado ao mongoDB');
 
@@ -18,8 +19,8 @@ mongoose.connect(`mongodb://${process.env.MONGOUSER}:${process.env.MONGOPASSWORD
     app.use(router);
 
 
-    app.listen(PORT, () => {
-      console.log(`✨ Server is running on http://localhost:${PORT}`);
+    app.listen(port, () => {
+      console.log(`✨ Server is running on http://${hostname}:${port}`);
     });
   })
   .catch(() => console.log('❌ Error ao conectar no mongoDB'));

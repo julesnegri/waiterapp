@@ -25,6 +25,11 @@ const upload = multer({
   }),
 });
 
+// router.get('/', function (req, res) {
+//   res.json({message: 'Hello World!'});
+// });
+
+
 // List categories
 router.get('/categories', listCategories);
 
